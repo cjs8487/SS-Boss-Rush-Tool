@@ -8,7 +8,7 @@ class List extends React.Component {
             <Col>
                 {
                     this.props.list.map((boss) => (
-                        <Row>
+                        <Row key={boss}>
                             <p>
                                 {this.props.bosses[boss]}
                             </p>
@@ -21,8 +21,8 @@ class List extends React.Component {
 }
 
 List.propTypes = {
-    list: PropTypes.arrayOf(PropTypes.string).isRequired,
-    bosses: PropTypes.objectOf(PropTypes.number).isRequired,
+    list: PropTypes.arrayOf(PropTypes.number).isRequired,
+    bosses: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
 export default List;
