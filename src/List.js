@@ -1,17 +1,28 @@
 import React from 'react';
+import { Row, Col } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 class List extends React.Component {
     render() {
         return (
-            <ul>
+            <Col>
                 {
                     this.props.list.map((boss) => (
-                        <li>{this.props.bosses[boss]}</li>
+                        <Row>
+                            <p>
+                                {this.props.bosses[boss]}
+                            </p>
+                        </Row>
                     ))
                 }
-            </ul>
-        )
+            </Col>
+        );
     }
 }
+
+List.propTypes = {
+    list: PropTypes.arrayOf(PropTypes.string).isRequired,
+    bosses: PropTypes.objectOf(PropTypes.number).isRequired,
+};
 
 export default List;
